@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  font-family: Helvetica;
+}
+
+#canvas-container {
+  margin: 0 auto;
+  max-width: 800px;
+  min-width: 300px; 
+}
+
+canvas {
+  min-width: 300px;
+  max-width: 800px;
+  height: 100vh;
+  background-color: #fce5d1;
+}
