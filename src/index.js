@@ -1,27 +1,28 @@
-var piece = {
-  id:null,
-  position: -1,
-  scored: false,
-  interactObj: null
+var piece = function() {
+  this.id = null;
+  this.position = -1;
+  this.scored = false;
+  this.interactObj = null;
+  this.owner = null;
 }
 
-var player = function() {
+var player = function(owner) {
+  this.name = owner;
   this.score = 0;
   this.offBoard = 7;
   this.pieces = [];
-  this.genPieces = function() {
+  this.genPieces = function(this.name) {
     for (var x = 0; x < 7; x++) {
       this.pieces[x] = new piece;
       this.pieces[x]["id"] = x;
-      this.pieces[x]["interactObj"] = document.createElement('div');
+      this.pieces[x]["owner"] = name;
     }
   }
 }
 
 var board = {
   //the first four tiles are starting player lane and the last two tiles are ending lane
-  playerLane1: [0, 0, 0, 0, 0, 0],  //places 4 [3] and 6 [5] give additional throw
-  playerLane2: [0, 0, 0 ,0 ,0, 0],  //places 4 [3] and 6 [5] give additional throw
+  playerLane: [[], [], [], [], [], []],  //places 4 [3] and 6 [5] give additional throw  //places 4 [3] and 6 [5] give additional throw
   sharedLane: [0, 0, 0, 0, 0, 0, 0, 0] //place 4 [3] gives additional throw and immunity
 };
 
@@ -50,34 +51,41 @@ function throwDice() {
   return rollTotal;
 }
 
+//Takes in a player's piece array and turn roll to check if they
+
+function movePiece(piece, turnRoll) {
+    var pieceTarget
+    piece.position += turnRoll;
+    pieceTarget = piece.position;
+    if (pieceTarget <= 3) {
+      return board.playerLane[pieceTarget].push(piece);
+    } else if(pieceTarget >= 13) {
+      return board.playerLane[pieceTarget - 8].push(piece);
+    }
+      return board.sharedLane[pieceTarget - 4] = piece;
+}
+
+function isPiecesFull(playerInventory, diceVal) {
+  if(playerInventory.length === 7) {
+    movePiece(playerInventory.shift(), diceVal);
+  }
+}
+
+var player1 = new player("player1Name");
+var player2 = new player("player2Name");
+player1.genPieces();
 function gameStart() {
-  var player1 = new player();
-  var player2 = new player();
   var winner = null;
   var turn = 0;
   var currentPiece;
-  var pieceMove;
+  
   while(!winner) {
     var turnThrow = 0;
     if (!turn) {
       console.log("Player 1 please roll the dice!");
       turnThrow = throwDice();
-      //If the player's dice roll is not 0, check to see if they have any pieces on the board.
-      //If they don't, get the first item in their pieces Array and make it the selected piece.
-      //Add the current dice roll value to the piece's position member and assign it appropriately.
-      //Move the piece obj to the appropriate position within the board object's indexes.
-      if (turnThrow) {
-        if(player1.pieces.length === 7) {
-          currentPiece = player1.pieces.shift();
-          pieceMove = currentPiece.position += turnThrow;
-          if(pieceMove <= 4 || pieceMove >= 13) {
-            if(turnThrow >= 13) {
-              board["playerLane1"][pieceMove - 8] = currentPiece;
-            } else {
-              board["playerLane1"][pieceMove] = currentPiece;
-            }
-          }
-        } 
+      if (turnThrow > 0) {
+        isPiecesFull(player1.pieces, turnThrow);
       }
       turn = 1;
     } else {
@@ -116,3 +124,4 @@ console.log("\t   x  ");
 console.log("\t   x  ");
 console.log("\t % x %");
 console.log("\t x x x");
+console.log(player1);
