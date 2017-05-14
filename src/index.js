@@ -1,7 +1,8 @@
 var piece = {
   id:null,
   position: -1,
-  scored: false
+  scored: false,
+  interactObj: null
 }
 
 var player = function() {
@@ -12,6 +13,7 @@ var player = function() {
     for (var x = 0; x < 7; x++) {
       this.pieces[x] = new piece;
       this.pieces[x]["id"] = x;
+      this.pieces[x]["interactObj"] = document.createElement('div');
     }
   }
 }
