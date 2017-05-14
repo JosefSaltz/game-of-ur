@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/JosefSaltz/game-of-ur#readme",
   "dependencies": {
-    "node-dev-server": "0.0.1"
+    "interact.js": "^1.2.8"
+  },
+  "devDependencies": {
+    "webpack": "^2.5.1",
+    "webpack-dev-server": "^2.4.5"
   }
 }
