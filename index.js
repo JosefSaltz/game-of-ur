@@ -1,6 +1,6 @@
 var piece = {
   id:null,
-  position: 0,
+  position: -1,
   scored: false
 }
 
@@ -19,13 +19,13 @@ var player = function() {
 var board = {
   //the first four tiles are starting player lane and the last two tiles are ending lane
   playerLane1: [0, 0, 0, 0, 0, 0],  //places 4 [3] and 6 [5] give additional throw
-  playerLane2: [0, 0, 0 ,0 ,0 ,0],  //places 4 [3] and 6 [5] give additional throw
-  sharedLane: [0, 0, 0, 0, 0, 0, 0, 0], //place 4 [3] gives additional throw and immunity
+  playerLane2: [0, 0, 0 ,0 ,0, 0],  //places 4 [3] and 6 [5] give additional throw
+  sharedLane: [0, 0, 0, 0, 0, 0, 0, 0] //place 4 [3] gives additional throw and immunity
 };
 
 function rollDice() {
   var die = Math.floor(Math.random() * 4 + 1); //generates a number between 1 - 4
-  if (die ===  3 | die === 2) {
+  if (die ===  3 || die === 2) {
     return 1;
   } else {
     return 0;
@@ -53,6 +53,8 @@ function gameStart() {
   var player2 = new player();
   var winner = null;
   var turn = 0;
+  var currentPiece;
+  var pieceMove;
   while(!winner) {
     var turnThrow = 0;
     
@@ -61,10 +63,13 @@ function gameStart() {
       turnThrow = throwDice();
       
       if (turnThrow) {
-        if(player1.pieces === 7) {
-          player1["pieces"][0]["position"] += turnThrow; //first piece is moved on board
-          player.offBoard -= 1; //subtracted from offBoard count
-          board["playerLane1"][turnThrow - 1] = player1["pieces"][0][id]; //board is assigned piece id in that position
+        
+        if(player1.pieces.length === 7) {
+          currentPiece = player1.pieces.shift();
+          pieceMove = currentPiece.position += turnThrow;
+          if(pieceMove < 4 || pieceMove >= 10) {
+            if(turnThrow >= 4)
+          }
         }
 
         
@@ -78,7 +83,7 @@ function gameStart() {
       }
     }
 
-    if( player1.score === 7 | player2.score === 7 ) { //win condition
+    if( player1.score === 7 || player2.score === 7 ) { //win condition
       winner = true;
       player1.score === 7 ? console.log("Player 1 wins!") : console.log("Player 2 wins!");
     }
@@ -86,12 +91,11 @@ function gameStart() {
 }
 
 console.log("Welcome to the Game of Ur!");
+console.log("\t % x %");
 console.log("\t x x x");
 console.log("\t x x x");
-console.log("\t x x x");
+console.log("\t x % x");
 console.log("\t   x  ");
 console.log("\t   x  ");
+console.log("\t % x %");
 console.log("\t x x x");
-console.log("\t x x x");
-
-
