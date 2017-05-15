@@ -1,4 +1,4 @@
-
+import interact from "interact.js";
 
 var piece = function() {
   this.id = null;
@@ -58,9 +58,9 @@ function movePiece(piece, turnRoll) {
   piece.position += turnRoll;
   pieceTarget = piece.position;
   if (pieceTarget <= 3 || pieceTarget >= 13) {
-    return board[pieceTarget].push(piece);
+    return board.grid[pieceTarget].push(piece);
   } else {
-    return board.sharedLane[pieceTarget - 4] = piece;
+    return board.grid[pieceTarget - 4] = piece;
   }
 }
 
@@ -85,6 +85,8 @@ var player1 = new player("player1Name");
 var player2 = new player("player2Name");
 
 player1.genPieces();
+
+interact('.piece').draggable();
 function gameStart() {
   var winner = null;
   var turn = 0;
@@ -137,3 +139,4 @@ console.log("\t % x %");
 console.log("\t x x x");
 console.log (moveSelection(player1, throwDice()));
 console.log(board);
+interact('.piece').draggable();

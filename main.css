@@ -15,3 +15,10 @@ canvas {
   height: 100vh;
   background-color: #fce5d1;
 }
+
+.piece {
+  height: 25px;
+  width: 25px;
+  border-radius: 100px;
+  background-color:gray;
+}
