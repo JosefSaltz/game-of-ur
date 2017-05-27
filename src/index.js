@@ -1,4 +1,5 @@
 import interact from "interact.js";
+import $ from 'jquery';
 
 var piece = function() {
   this.id = null;
@@ -37,13 +38,13 @@ function rollDice() {
   } 
 }
 
+
 function throwDice() {
-  var dice = [0, 0, 0, 0]; //array to store the four dice
-  
+  //array to store the four dice
+  var dice = [0, 0, 0, 0]; 
   var rolled = dice.map( function(val) { 
     return val += rollDice();
   });
-
   var rollTotal = rolled.reduce( function(prev, curr) { 
     return prev += curr
   });
@@ -64,7 +65,7 @@ function movePiece(piece, turnRoll) {
   }
 }
 
-function  moveSelection(playerInventory, diceVal) {
+function moveSelection(playerInventory, diceVal) {
   if(playerInventory.pieces.length === 7) {
     console.log("Automatically placing piece on board.");
     playerInventory.offBoard -= 1;
@@ -86,7 +87,6 @@ var player2 = new player("player2Name");
 
 player1.genPieces();
 
-interact('.piece').draggable();
 function gameStart() {
   var winner = null;
   var turn = 0;
@@ -139,4 +139,21 @@ console.log("\t % x %");
 console.log("\t x x x");
 console.log (moveSelection(player1, throwDice()));
 console.log(board);
-interact('.piece').draggable();
+
+
+/*
+//interact.js demo code
+interact('.piece').draggable({ onmove: dragMoveListener });
+
+function dragMoveListener (event) {
+  var target = event.target,
+    //not sure what is going on exactly here...
+    x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
+    y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+  target.style.webkitTransform =
+  target.style.transform = 
+    'translate(' + x + 'px, ' + y + 'px)';
+  target.setAttribute('data-x', x);
+  target.setAttribute('data-y', y); 
+}
+*/ 

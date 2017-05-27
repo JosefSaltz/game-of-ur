@@ -3,22 +3,58 @@ body {
   font-family: Helvetica;
 }
 
-#canvas-container {
-  margin: 0 auto;
-  max-width: 800px;
-  min-width: 300px; 
-}
-
-canvas {
-  min-width: 300px;
-  max-width: 800px;
-  height: 100vh;
-  background-color: #fce5d1;
-}
-
 .piece {
   height: 25px;
   width: 25px;
   border-radius: 100px;
-  background-color:gray;
+  background-color:#bfbfbf;
+  display: block;
+}
+
+.piece.player2 {
+  float: right;
+  background-color: black;
+}
+
+.inventory {
+  border: solid thin black;
+  border-radius: 10px;
+  width: 100px;
+}
+
+.inventory.player1 {
+  float: left;
+  
+}
+
+.inventory.player2 {
+  float: right;
+}
+
+.player2 .piece {
+  float: right;
+  clear: right;
+}
+
+.board {
+  margin: 0 auto;
+  width: 300px;
+}
+
+.column {
+  height: 500px;
+  width: 100px;
+  float: left;
+}
+
+.row {
+  height: 100px;
+  border: solid thin black;
+  background-color: rgb(87%, 74%, 54%);
+}
+
+.row.hidden {
+  border: none;
+  background-color: white;
+  margin: 1px 0; 
 }
