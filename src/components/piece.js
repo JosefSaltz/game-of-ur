@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 
 class Piece extends Component {
-  constructor(props) {
-    super(props);
-    // Individual pieces should receive id and owner from their props
+  super(props);
+  constructor() {
     this.state = {
-      id: this.props.key,
-      owner: this.props.owner,  
+        name: this.props.key,
+        owner: this.props.owner,
+        position: this.props.position
     }
   }
 
   render() {
     return (
-      <div>
-
+      <div class="piece">
+        {/* renders a circle with player's color shape */}
       </div>
     );
   }

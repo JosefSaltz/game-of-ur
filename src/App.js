@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import Board from './components/board';
-import './App.css';
 
+function gameLoop() {
+
+}
 class App extends Component {
+
   render() {
     return (
       <Board />
@@ -10,6 +13,5 @@ class App extends Component {
   }
 }
 
-
-
 export default App;
+

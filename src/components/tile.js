@@ -9,7 +9,7 @@ class Tile extends Component {
 
   render() {
     return (
-      <div>
+      <div class="tile">
         {/*
           Mandala graphic
           Can render player pieces
