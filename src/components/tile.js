@@ -5,7 +5,10 @@ import '../styles/tile.css'
 class Tile extends Component {
   constructor(props) {
     super(props);
-
+    this.state = {
+      occupied: true,
+      current_piece: null
+    }
   }
 
   render() {

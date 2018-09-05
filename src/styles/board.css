@@ -1,13 +1,14 @@
 /* COLORS */
 * {
   --papyrus: #EEDFA6;
+  box-sizing: border-box;
 }
 
 
 .grid-wrapper {
   display: grid;
-  width: ;
-  margin: 0 auto;
+  width: 400px;
+  margin: 30% auto;
   grid-template-rows: repeat(3, 50px);
   grid-template-columns: repeat(8, 50px);
   background-color: var(--papyrus);

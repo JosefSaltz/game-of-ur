@@ -1,0 +1,6 @@
+.piececounter {
+  width: 20%;
+  position: fixed;
+  top: 75%;
+  border: solid thin black;
+}

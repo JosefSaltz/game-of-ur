@@ -32,16 +32,33 @@ class Board extends Component {
   }
 
   render() {
-    let top_row = this.state.top_row.tile_pattern;
-    let middle_row = this.state.middle_row.tile_pattern;
-    let bottom_row = this.state.bottom_row.tile_pattern; 
+    /* How the fuck do you iterate multiple elements into jsx? */
     return (
-      <div class="grid-wrapper">
-        {
-          top_row.forEach(this.tile_encode(top_row));
-          top_row.forEach(this.tile_encode(middle_row));
-          top_row.forEach(this.tile_encode(bottom_row));
-        }
+      <div className="grid-wrapper">
+        <Tile />
+        <Tile />
+        <Tile />
+        <Tile />
+        <Tile />
+        <Tile />
+        <Tile />
+        <Tile />
+        <Tile />
+        <Tile />
+        <Tile />
+        <Tile />
+        <Tile />
+        <Tile />
+        <Tile />
+        <Tile />
+        <Tile />
+        <Tile />
+        <Tile />
+        <Tile />
+        <Tile />
+        <Tile />
+        <Tile />
+        <Tile />
       </div>
     );
   }
