@@ -1,5 +1,14 @@
+/* COLORS */
+* {
+  --papyrus: #EEDFA6;
+}
+
+
 .grid-wrapper {
   display: grid;
-  grid-template-rows: 32% 32% 32%;
-  
+  width: ;
+  margin: 0 auto;
+  grid-template-rows: repeat(3, 50px);
+  grid-template-columns: repeat(8, 50px);
+  background-color: var(--papyrus);
 }
