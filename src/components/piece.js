@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import Draggable, { DraggableCore } from 'react-draggable'
 import hri from 'human-readable-ids';
+import '../styles/piece.css';
 class Piece extends Component {
   constructor(props) {
     super(props);
-    let name = hri.random();
+    let name = hri.random;
     
     this.state = {
       name,
@@ -13,16 +15,16 @@ class Piece extends Component {
     }
   }
 
-  handleBorderToggle(event) {
-    console.log("Highlights piece's border!");
-    this.setState({ selected: !(this.state.selected) });
+  snapPosition() {
+    //Quantizes pieces position to nearest tile 
   }
-
   render() {
     return (
-      <div className={`piece ${this.props.owner}`}>
-        <input type="radio" onChange={this.handleBorderToggle()} />
-      </div>
+      <Draggable grid={[25,25]} onMouseUp={this.snapPosition} bounds="parent">
+        <div className={`piece ${this.props.owner}`}>
+          <input type="radio" />
+        </div>
+      </Draggable>
     );
   }
 }

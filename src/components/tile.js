@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Piece from './piece';
 import '../styles/tile.css'
 
 class Tile extends Component {
