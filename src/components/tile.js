@@ -6,14 +6,14 @@ class Tile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      occupied: true,
+      occupied: false,
       current_piece: null
     }
   }
 
   render() {
     return (
-      <div class="tile">
+      <div className={this.props.className}>
         {/*
           Mandala graphic
           Can render player pieces

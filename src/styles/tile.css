@@ -3,3 +3,8 @@
   height: 50px;
   width: 50px;
 }
+
+.invisible {
+  background-color: white;
+  border: none;
+}

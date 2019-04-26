@@ -23,8 +23,8 @@ class Board extends Component {
     }
   }
   
-  tile_encode(value) {
-    if(value) {
+  tile_encode(present) {
+    if(present) {
       return <Tile className="tile visible" />;
     } else {
       return <Tile className="tile invisible" />;
@@ -35,30 +35,21 @@ class Board extends Component {
     /* How the fuck do you iterate multiple elements into jsx? */
     return (
       <div className="grid-wrapper">
-        <Tile />
-        <Tile />
-        <Tile />
-        <Tile />
-        <Tile />
-        <Tile />
-        <Tile />
-        <Tile />
-        <Tile />
-        <Tile />
-        <Tile />
-        <Tile />
-        <Tile />
-        <Tile />
-        <Tile />
-        <Tile />
-        <Tile />
-        <Tile />
-        <Tile />
-        <Tile />
-        <Tile />
-        <Tile />
-        <Tile />
-        <Tile />
+        { 
+          Array.from(
+            this.state.top_row.tile_pattern, (el) => { return this.tile_encode(el) } 
+          )
+        }
+        {
+          Array.from(
+            this.state.middle_row.tile_pattern, (el) => { return this.tile_encode(el) } 
+          )
+        }
+        {
+          Array.from(
+            this.state.bottom_row.tile_pattern, (el) => { return this.tile_encode(el) } 
+          ) 
+        }
       </div>
     );
   }
