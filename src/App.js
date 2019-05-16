@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Board from './components/board';
 import Piece from './components/piece';
+import toggleTurn from './helper/toggleTurn.js'
+import diceRoll from './helper/diceRoll.js'
 class App extends Component {
   constructor() {
     super();
@@ -33,19 +35,30 @@ class App extends Component {
     //Waits for player to select piece
     //Checks that a destination has been selected
     //Upon End Move Submission update piece position state
-    //Update player score
+    this.curr_turn = toggleTurn(playerId);
   }
   
+  startGame() {
+    let player1 = this.state.player1;
+    let player2 = this.state.player2;
+
+    while(this.state.game_not_over) {
+      this.launchTurn(curr_turn).bind(this)
+    }
+  }
   
   render() {
     return (
-    <div>  
-      <Board />
-    </div>
+      <div>  
+        <Board />
+      </div>
     );
   }
 
 }
+
+
+
 
 export default App;
 
