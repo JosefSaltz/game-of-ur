@@ -1,3 +1,24 @@
+## What is the Royal Game of Ur?
+
+The Royal Game of Ur is a board game dating back to the ancient Sumerians, it is one of the oldest if not *the* oldest board game currently known in human history. If you would like to learn more information about the Royal Game of Ur please visit this [link](https://www.youtube.com/watch?v=WZskjLq040I).
+
+## The Rules
+The Game of Ur is a lot like contemporary board game "Sorry!" where your goal is to reach a point **B** from a point **A** and knocking off any of your opponents pieces that stand in the way. 
+
+- Each player has seven pieces
+- Each player begins on the starting tile on their respective side of the board which is the tile on the longer side, closest to the gap.
+- Each player is to head straight down the long side, turn the corner and begin to traverse the center lane of the board to the shorter side.
+- Once reaching the end of the middle lane the player is to turn the corner into their respective lane and come off the board.
+- Please note that players can only attack each other in the center lane of the board.
+- The squares at the **first corner**, **fourth tile of the center**, and **final tile of lanes** allows you to roll twice.
+- If a player attacks an opponent's piece, the opponent's piece is removed from the board and must start over.
+- The double throw tile in the center lane also acts as a safe haven from attacks whilst also blocking any one else from landing on it.
+- Die are tetrahedrons, two of the four corners are marked.
+- Amount of marked sides sticking up is your score for the turn.
+- It is possible to roll a zero.
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

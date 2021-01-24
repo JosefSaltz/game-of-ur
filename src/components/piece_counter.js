@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Piece from './piece';
 import '../styles/piececounter.css'
 
+//Displays information about how many pieces the player has in play
 class Piece_Counter extends Component {
   constructor(props) {
     super(props);
@@ -12,7 +13,7 @@ class Piece_Counter extends Component {
   }
   render() {
     return (
-      <div className="Piececounter>
+      <div className="piece-counter">
         <Piece />
         x
         {this.state.piece_count}
@@ -22,4 +23,4 @@ class Piece_Counter extends Component {
   }
 }
 
-export default Piece_Counter
+export default Piece_Counter;

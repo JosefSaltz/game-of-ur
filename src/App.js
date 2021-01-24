@@ -8,6 +8,7 @@ class App extends Component {
     super();
     this.state = {
       game_not_over: true,
+      curr_turn: null,
       player1: {
         playerId: 1,
         pieces: [],
@@ -37,13 +38,21 @@ class App extends Component {
     //Upon End Move Submission update piece position state
     this.curr_turn = toggleTurn(playerId);
   }
+
+  turnModal() {
+    //Asynchronous code that performs a dice roll for each client
+    //Should display a modal that will prompt players to decide who goes first
+    
+    
+    return winner;
+  }
   
   startGame() {
     let player1 = this.state.player1;
     let player2 = this.state.player2;
-
+    this.turnModal();
     while(this.state.game_not_over) {
-      this.launchTurn(curr_turn).bind(this)
+      this.launchTurn(this.state.curr_turn).bind(this)
     }
   }
   

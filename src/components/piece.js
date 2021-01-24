@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Draggable, { DraggableCore } from 'react-draggable'
 import hri from 'human-readable-ids';
 import '../styles/piece.css';
+
+//Renders a player piece in one of two colors
 class Piece extends Component {
   constructor(props) {
     super(props);
