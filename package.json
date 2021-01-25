@@ -8,7 +8,7 @@
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-draggable": "^3.3.0",
-    "react-scripts": "^3.0.0"
+    "react-scripts": "4.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -20,7 +20,8 @@
     "babel-cli": "^6.26.0",
     "human-readable-ids": "^1.0.4",
     "jest": "^26.6.3",
-    "lodash": "^4.17.20"
+    "lodash": "^4.17.20",
+    "react-test-renderer": "^17.0.1"
   },
   "browserslist": {
     "production": [
