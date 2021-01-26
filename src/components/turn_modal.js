@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
-import '../styles/tile.css'
-import
+import '../styles/turnModal.css'
+import Dice from './dice';
 
-class Turn_Modal {
+class TurnModal extends Component {
   render() {
     return(
-      <div>
-        
+      <div className="modal">
+        <Dice />
+        <button>Roll Dice!</button>
       </div>
-    )
+    );
   }
 }
+
+export default TurnModal;

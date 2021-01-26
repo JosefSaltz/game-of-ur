@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Board from './components/board';
 import Piece from './components/piece';
-import toggleTurn from './helper/toggleTurn.js'
-import diceRoll from './helper/diceRoll.js'
+import toggleTurn from './helper/toggleTurn.js';
+import diceRoll from './helper/diceRoll.js';
+import TurnModal from './components/turn_modal';
 class App extends Component {
   constructor() {
     super();
@@ -18,7 +19,8 @@ class App extends Component {
         playerId: 2,
         pieces: [],
         score: null
-      }
+      },
+      displayState: null,
     }
   }
 
@@ -39,27 +41,42 @@ class App extends Component {
     this.curr_turn = toggleTurn(playerId);
   }
 
-  turnModal() {
-    //Asynchronous code that performs a dice roll for each client
-    //Should display a modal that will prompt players to decide who goes first
-    
-    
-    return winner;
+  componentDidMount() {
+    this.startGame();
   }
-  
+
   startGame() {
     let player1 = this.state.player1;
     let player2 = this.state.player2;
-    this.turnModal();
-    while(this.state.game_not_over) {
-      this.launchTurn(this.state.curr_turn).bind(this)
+    //Send both players the turn modal to roll dice and return their values
+    this.setState({ displayState: 'chooseTurn' }, () => {
+      console.log(`displayState update: ${this.state.displayState}`);
+    });
+
+    //while(this.state.game_not_over) {
+    //  this.launchTurn(this.state.curr_turn);
+    //}
+  }
+
+  
+
+  getComponent() {
+    let component;
+    switch(this.displayState) {
+      case 'turnModal':
+        component = <TurnModal />;
+        break;
+      default:
+        component = <Board />;
+        break;
     }
+    return component;
   }
   
   render() {
     return (
       <div>  
-        <Board />
+        { this.getComponent() }
       </div>
     );
   }

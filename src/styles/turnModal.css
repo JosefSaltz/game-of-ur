@@ -1,0 +1,9 @@
+.modal {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 3;
+  background-color: orange;
+  opacity: 10%;
+  /*some changes*/
+}

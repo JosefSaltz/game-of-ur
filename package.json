@@ -19,7 +19,6 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "human-readable-ids": "^1.0.4",
-    "jest": "^26.6.3",
     "lodash": "^4.17.20",
     "react-test-renderer": "^17.0.1"
   },
