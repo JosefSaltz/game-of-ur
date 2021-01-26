@@ -28,7 +28,7 @@ class Board extends Component {
     if(present) {
       return <Tile className="tile visible" key={uid} />;
     } else {
-      return <Tile className="tile invisible" />;
+      return <Tile className="tile invisible" key={uid} />;
     }
   }
 
