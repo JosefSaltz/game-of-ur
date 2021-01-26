@@ -62,8 +62,9 @@ class App extends Component {
 
   getComponent() {
     let component;
-    switch(this.displayState) {
-      case 'turnModal':
+    switch(this.state.displayState) {
+      case 'chooseTurn':
+        console.info("Modal enabled");
         component = <TurnModal />;
         break;
       default:

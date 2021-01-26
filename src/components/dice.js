@@ -9,7 +9,7 @@ class Dice extends Component {
       <div className="dice">
         <ol id="die1">
           <li className="die-side" data-side="1">
-
+            <span className="dot"></span>
           </li>
         </ol>
         <ol id="die2">
