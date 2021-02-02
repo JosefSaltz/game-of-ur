@@ -1,7 +1,7 @@
 // Generate a random number for a given die
 function rollDie() {
-  const sides = 5;
-  return Math.floor(Math.random() * sides) + 1;
+  const vertices = 4;
+  return Math.floor(Math.random() * vertices) + 1;
 }
 
 // Return an array of die values

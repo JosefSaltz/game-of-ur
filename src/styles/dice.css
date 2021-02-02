@@ -1,0 +1,91 @@
+/* Tetrahedron code pulled from https://paulrhayes.com/css-tetrahedron/ */
+
+:root {
+  font-size: 10px;
+}
+
+.dice-view {
+  /*Requires Flex align-items: center; */
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(2, minmax(8rem, 1fr));
+  grid-template-rows: 1fr;
+  justify-items: center;
+  padding: 2rem;
+
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.die {
+  
+
+  transform-style: preserve-3d;
+  
+  display: block;
+  position: relative;
+  
+}
+
+.dieA {
+  transition: transform 1.5s ease-out;
+
+}
+
+.dieB {
+  transition: transform 1.25s ease-out;
+}
+
+.die-side {
+  /*
+  border-top: solid 50px #2222;
+  display: grid;
+  grid-column : 1;
+  grid-row: 1;
+  grid-template-areas:
+    "one two three"
+    "four five six"
+    "seven eight nine";
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 0%;
+  height: 0%;
+  padding: 1rem;
+  */
+  position: absolute;
+  border-style: solid;
+  /* Responsible for the triangle shape */
+  border-width: 150px;
+  transform-origin: 0 0;
+
+}
+
+
+/* Dice side transforms */
+.die > div:first-child {
+  border-color: transparent transparent transparent rgba(256, 50, 50, 0.6);
+  transform: rotateY(0deg) rotateX(0deg) translateX(-50px);
+}
+
+.die > div:nth-child(2) {
+  border-color: transparent transparent transparent rgba(50, 256, 50, 0.6);
+  transform: rotateY(0deg) rotateZ(0deg) translateX(300px) translateY(0px);
+}
+
+.die > div:nth-child(3) {
+  border-color: transparent transparent transparent rgba(50, 50, 256, 0.9);
+  transform: rotateX(0deg) rotateY(0deg) translateX(200px);
+}
+
+.die > div:nth-child(4) {
+  border-color: transparent transparent transparent rgba(255, 246, 0, 0.4);
+  transform: rotateX(0deg) rotateY(0deg) translateX(100px) translateY(0px) translateZ(0px);
+}
+
+
+
+.dot {
+  display: block;
+  background-color: white;
+  width: 50%;
+  height: 50%;
+}

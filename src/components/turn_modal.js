@@ -7,7 +7,9 @@ class TurnModal extends Component {
     return(
       <div className="modal">
         <Dice />
-        <button>Roll Dice!</button>
+        <div id="btn-container">
+          <button hidden onClick={Dice.roll}>Roll Dice!</button>
+        </div>
       </div>
     );
   }
